@@ -1,28 +1,55 @@
-
-
-<body>
-    <div class="container-fluid" id="navbar">
-        <div class="row pb-5 d-flex align-items-center justify-content-end">
-            <div class="col-2 d-flex">
-                <button type="button" class="btn d-flex align-items-center">
-                    <h6 class="m-0">Notre Savoir-Faire</h6>
-                </button>
-            </div>
-            <div class="col-2 d-flex" id="dropdown">
-                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
-                    Menus-Plaisirs
-                </button>
-                <ul class="dropdown-menu text-center">
-                    <li><a class="dropdown-item" href="#">Link 1</a></li>
-                    <li><a class="dropdown-item" href="#">Link 2</a></li>
-                    <li><a class="dropdown-item" href="#">Link 3</a></li>
-                </ul>
-            </div>
-            <div class="col-1">
-                <div class="logo">
-                    <%= image_tag('logom.png', class: 'img-fluid', alt: 'main') %>
-                </div>
-            </div>
-        </div>
+<nav class="navbar navbar-expand-lg bg-dark">
+  <div class="container-fluid">
+    <div>
+      <%= link_to root_path do %>
+        <%= image_tag("gif_logo_notitle_white.gif", alt: "Description de l'image", class: "logo-img") %>
+      <% end %>
     </div>
-</body>
+    <a class="navbar-brand text-white" href="/">Ceremonia</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- Les liens des pages -->
+        <li class="nav-item">
+          <%= link_to root_path, class: 'nav-link text-white' do %>
+            <i class="fas fa-home"></i> Accueil
+          <% end %>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= button_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete, confirm: "Êtes-vous sûr de vouloir vous déconnecter ?" }, class: "nav-link bg-danger text-white rounded-button" do %>
+              <i class="fas fa-sign-out-alt"></i> Déconnexion
+            <% end %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= button_to new_user_session_path, class: "nav-link bg-primary text-white rounded-button" do %>
+            <i class="fas fa-sign-in-alt"></i> Se connecter
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to new_user_registration_path, class: 'nav-link bg-primary text-white rounded-button' do %>
+              <i class="fas fa-user-plus"></i> S'inscrire
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+          <%# <li class="nav-item">
+            <%= link_to user_path(current_user), class: 'nav-link text-white' do 
+              <i class="fas fa-user"></i> Bienvenue, <%= current_user.email 
+            <% end 
+          </li>
+                      <% if current_user.admin?  <!-- Vérifie si l'utilisateur est administrateur -->
+              <li class="nav-item">
+                <%= link_to admin_root_path, class: 'nav-link text-white' do 
+                  <i class="fas fa-cogs"></i> Admin
+                <% end 
+              </li>%>
