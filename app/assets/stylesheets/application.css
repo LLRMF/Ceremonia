@@ -10,37 +10,9 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require style
+ *= require litera
  *= require_tree .
  *= require_self
+
  */
- @font-face {
-    font-family: 'ImprintMTShadow';
-    src: url('/asset/fonts/ImprimMTShadow.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-.title1 {
-    font-family: 'ImprintMTShadow';
-    font-size: 6rem;
-    color: #fcb1cf;
-}
-
-.hyphen {
-    font-family: 'ImprintMTShadow';
-    font-size: 6rem;
-    color: #fcb1cf;
-}
-
-.leit {
-    font-family: 'ImprintMTShadow';
-    font-size: 3rem;
-    color: #fcb1cf;
-    padding-bottom: 20px;
-}
-
-.btn-light {
-    background-color: #fcb1cf;
-
-}
