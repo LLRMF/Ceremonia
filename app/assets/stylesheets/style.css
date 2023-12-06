@@ -29,3 +29,14 @@
   background-color: #fcb1cf;
 
 }
+
+.logo-img {
+  max-width: 100px; 
+  height: auto; 
+  margin-right: 10px;
+  border-radius: 89px;
+}
+.rounded-button {
+  border-radius: 10px; 
+  margin-right: 5px;
+}
