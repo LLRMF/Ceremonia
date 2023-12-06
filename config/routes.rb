@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'events/index'
+  get 'events/show_guest'
+  get 'events/admin_guest'
+  get 'events/new'
+  get 'events/create'
+  get 'events/edit'
+  get 'events/update'
+  get 'events/destroy'
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
